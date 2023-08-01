@@ -1,0 +1,51 @@
+
+buildscript {
+    apply from: '../jacoco.gradle'
+}
+
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.numberadder'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.numberadder"
+        minSdk 26
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    // For Junit in Unit tests.
+    testImplementation 'junit:junit:4.13.2'
+    // For Mocking EvenOddUtil and mock opt. in unit tests.
+    testImplementation 'org.mockito:mockito-core:3.11.2'
+
+    // Used for AndroidJUnit4 in instrumentation tests.
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    // Espresso dep for using espresso in case of view assertion in instrumentation tests.
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
