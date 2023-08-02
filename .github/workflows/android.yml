@@ -88,7 +88,7 @@ jobs:
       uses: christian-draeger/increment-semantic-version@1.1.0
       with:
         current-version: '1.0.0' 
-        version-fragment: 'Init-build'
+        version-fragment: 'bug'
     - name: Do something with your bumped release version
       run: echo ${{ steps.bump_version.outputs.next-version }}
     - name: Docker Build & Push Action
